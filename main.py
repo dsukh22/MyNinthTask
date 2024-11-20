@@ -9,6 +9,24 @@ def Print_Menu() -> str:
     return choice
 
 
+def Creating_Arrays_Dialogue():
+    mode: str = input("Выберите режим создания массивов:\n"
+                      "1. Автоматический\n"
+                      "2. Ручной\n"
+                      "Ваш выбор: ")
+    match mode:
+        case "1":
+            my_arrays = Auto_Generating_Arrays()
+            return my_arrays
+        case "2":
+            my_self_arrays = Self_Creating_Arrays()
+            return my_self_arrays
+        case _:
+            input("Такого случая не предусмотрено.\n"
+                  "Нажмите любую клавишу, чтобы продолжить")
+            return
+
+
 def Auto_Generating_Arrays() -> list:
     size = random.randint(2, 10)
 
@@ -39,5 +57,4 @@ def Self_Creating_Arrays():
 
 
 if __name__ == "__main__":
-    test_arrays = Self_Creating_Arrays()
-    print(test_arrays)
+    ...
