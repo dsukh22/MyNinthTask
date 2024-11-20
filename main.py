@@ -30,9 +30,9 @@ def Creating_Arrays_Dialogue():
 def Auto_Generating_Arrays() -> list:
     size = random.randint(2, 10)
 
-    array1 = list(map(lambda _: random.randint(1, 100), range(size)))
-    array2 = list(map(lambda _: random.randint(1, 100), range(size)))
-    array3 = list(map(lambda _: random.randint(1, 100), range(size)))
+    array1 = list(map(lambda _: random.randint(1, 10), range(size)))
+    array2 = list(map(lambda _: random.randint(1, 10), range(size)))
+    array3 = list(map(lambda _: random.randint(1, 10), range(size)))
 
     return [array1, array2, array3]
 
@@ -70,9 +70,18 @@ def Checking_Digits(arrays: list):
     return results
 
 
+def Show_Results(result: list):
+    if not result:
+        input("К сожалению, числа, соответствующие условиям, не найдены.\n"
+              "Нажмите на любую клавишу, чтобы продолжить...")
+        return
+    print("Вышли следующие числа:")
+    for res in result:
+        print(res)
+    input("Нажмите на любую клавишу, чтобы продолжить...")
+
+
 if __name__ == "__main__":
-    array1 = [1, 2, 3]
-    array2 = [2, 4, 7]
-    array3 = [3, 5, 10]
-    arrays1 = [array1, array2, array3]
-    print(Checking_Digits(arrays1))  # [6, 8000]
+    new_arrays = Auto_Generating_Arrays()
+    my_results = Checking_Digits(new_arrays)
+    Show_Results(my_results)
