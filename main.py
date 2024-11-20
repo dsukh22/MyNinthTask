@@ -19,20 +19,25 @@ def Auto_Generating_Arrays() -> list:
     return [array1, array2, array3]
 
 
+def Self_Creating_Arrays():
+    arrays = [[], [], []]
+    try:
+        arrays_size: int = int(input("Введите размер массивов: "))
+    except:
+        input("Размер массивов введён некорректно!\n"
+              "Нажмите любую клавишу, чтобы продолжить")
+        return
+    for index, array in enumerate(arrays):
+        for _ in range(arrays_size):
+            try:
+                array += [int(input(f"Введите число ({index + 1} массив): "))]
+            except:
+                input("Необходимо вводить именно числа, в противном случае создать массив не получится.\n"
+                      "Нажмите любую клавишу, чтобы продолжить")
+                return
+    return arrays
+
+
 if __name__ == "__main__":
-    first_test = Auto_Generating_Arrays()
-    for array in first_test:
-        print(array, len(array))
-
-    print("=========================")
-
-    second_test = Auto_Generating_Arrays()
-    for array in second_test:
-        print(array, len(array))
-
-    print("=========================")
-
-    third_test = Auto_Generating_Arrays()
-    for array in third_test:
-        print(array, len(array))
-        
+    test_arrays = Self_Creating_Arrays()
+    print(test_arrays)
