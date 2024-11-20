@@ -56,5 +56,23 @@ def Self_Creating_Arrays():
     return arrays
 
 
+def Checking_Digits(arrays: list):
+    results = []
+
+    for i in range(len(arrays[0])):
+        sum_ab = arrays[0][i] + arrays[1][i]
+
+        if sum_ab == arrays[2][i]:
+            min_value = min(arrays[0][i], arrays[1][i], arrays[2][i])
+            result = (arrays[0][i] + arrays[1][i] + arrays[2][i]) ** min_value
+            results.append(result)
+
+    return results
+
+
 if __name__ == "__main__":
-    ...
+    array1 = [1, 2, 3]
+    array2 = [2, 4, 7]
+    array3 = [3, 5, 10]
+    arrays1 = [array1, array2, array3]
+    print(Checking_Digits(arrays1))  # [6, 8000]
