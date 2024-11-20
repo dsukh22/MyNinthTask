@@ -1,3 +1,4 @@
+import os
 import random
 
 
@@ -81,7 +82,31 @@ def Show_Results(result: list):
     input("Нажмите на любую клавишу, чтобы продолжить...")
 
 
+def Quitting():
+    exit()
+
+
 if __name__ == "__main__":
-    new_arrays = Auto_Generating_Arrays()
-    my_results = Checking_Digits(new_arrays)
-    Show_Results(my_results)
+    while True:
+        os.system("cls")
+        user_choice = Print_Menu()
+        match user_choice:
+            case "1":
+                needed_arrays = Creating_Arrays_Dialogue()
+                results = None
+            case "2":
+                try:
+                    results = Checking_Digits(needed_arrays)
+                except:
+                    input("Необходимых данных не найдено!\n"
+                          "Нажмите на любую клавишу, чтобы продолжить...")
+            case "3":
+                try:
+                    if results is None:
+                        raise Exception()
+                    Show_Results(results)
+                except:
+                    input("Алгоритм ещё не проделал работу, результаты отсутствуют!\n"
+                          "Нажмите на любую клавишу, чтобы продолжить...")
+            case "4":
+                Quitting()
